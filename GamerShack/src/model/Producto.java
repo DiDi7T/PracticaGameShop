@@ -45,10 +45,12 @@ public class Producto {
 		
 		
 	}
+	/**
 	public String getPrecio () { //metodo analizador da el codigo 
 		
 		return this.precio;
 		
 		
 	}
+	*/
 }

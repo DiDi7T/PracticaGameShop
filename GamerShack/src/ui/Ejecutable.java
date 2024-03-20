@@ -100,7 +100,7 @@ public class Ejecutable{
 	
 		lector.nextLine(); //correción del bug del Scanner
 		
-		System.out.println(controller.listaProductos());
+		System.out.println(controller.listarProductos());
 	
 		System.out.println("Digite el codigo del producto");
 		String codigo = lector.nextLine ();
