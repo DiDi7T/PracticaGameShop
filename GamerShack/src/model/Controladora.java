@@ -22,6 +22,7 @@ public class Controladora{
 					lista+="\n"+almacenamiento[i].getCodigo()+"-"+almacenamiento[i].getNombre();
 				}
 			}
+			return lista;
 		}
 		
 		// metodo que recibe la informacion del archivo ejecutable de otro objeto e
