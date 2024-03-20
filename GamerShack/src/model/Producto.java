@@ -37,5 +37,18 @@ public class Producto {
 		
 		return this.codigo;
 		
+		
+	}
+	public String getNombre () { //metodo analizador da el codigo 
+		
+		return this.nombre;
+		
+		
+	}
+	public String getPrecio () { //metodo analizador da el codigo 
+		
+		return this.precio;
+		
+		
 	}
 }

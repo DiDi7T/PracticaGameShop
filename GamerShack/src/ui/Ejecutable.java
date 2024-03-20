@@ -85,7 +85,12 @@ public class Ejecutable{
 		System.out.println("Digite el precio del producto");
 		double precio = lector.nextDouble ();
 		
-		controller.almacenarProducto (codigo, nombre, precio);  // tiene que ir en el mismo orden 
+		boolean resultado=controller.almacenarProducto (codigo, nombre, precio);  // tiene que ir en el mismo orden 
+		if(resultado==true){
+			System.out.println("Registro exitoso");
+		}else{
+			System.out.println("ha ocurrido un error");
+		}
 		
 		
 	}
@@ -94,6 +99,8 @@ public class Ejecutable{
 	public void consultarProducto () { //no retorna nada porque este muestra la informacion al usuario del producto buscado 
 	
 		lector.nextLine(); //correción del bug del Scanner
+		
+		System.out.println(controller.listaProductos());
 	
 		System.out.println("Digite el codigo del producto");
 		String codigo = lector.nextLine ();

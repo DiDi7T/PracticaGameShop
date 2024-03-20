@@ -15,6 +15,15 @@ public class Controladora{
 			
 		}
 		
+		public String listarProductos(){
+			String lista = "";
+			for(int i=0;i<almacenamiento.length;i++){
+				if (almacenamiento[i]!=null){
+					lista+="\n"+almacenamiento[i].getCodigo()+"-"+almacenamiento[i].getNombre();
+				}
+			}
+		}
+		
 		// metodo que recibe la informacion del archivo ejecutable de otro objeto e
 		// Este metodo nos sirve para almacenar el producto en uno de los espacios de el arreglo 
 		public boolean almacenarProducto (String codigo, String nombre, double precio) {
@@ -28,6 +37,8 @@ public class Controladora{
 					almacenamiento[i] = nuevoProducto;
 					
 					return true; //paramos con un return para que no se llenen las mil casillas del mismo numero
+				}else if(almacenamiento[i].getCodigo().equals(codigo)){
+					return false;
 				}
 				
 			}
