@@ -70,7 +70,17 @@ public class Ejecutable{
 		}while(flag);
 		
 	}
-	
+	public void eliminarProducto(){
+		reader.nextLine();
+		
+		System.out.println("Digite el codigo del producto");
+		String codigo =reader.nextLine();
+		if(controller.eliminarProducto(codigo)){
+			System.out.printLn("Producto eliminado exitosamente");
+		}else{
+			System.out.println("El producto no ha podido ser eliminado");
+		}
+	}
 	
 	public void registrarProducto (){ // en este metodo se pide la información se llama a la controladoram luego la controladora recibe informacion y lo que hace es crear un producto y almacenarlo 
 		
