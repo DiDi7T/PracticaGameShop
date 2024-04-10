@@ -45,7 +45,10 @@ public class Ejecutable{
 			System.out.println("Bienvenido al software de inventario del GamseShark");
 			System.out.println("1) Registrar Producto");
 			System.out.println("2) consultar Productos por codigo ");
-			System.out.println("3) Salir");
+			System.out.println("3) Cambiar precio de un producto");
+			System.out.println("4) Borrar un producto");
+			System.out.println("5) Agregar una venta");
+			System.out.println("0) Salir");
 			int option = lector.nextInt();
 			switch(option){
 				case 1:
@@ -57,7 +60,17 @@ public class Ejecutable{
 				consultarProducto();
 				break;
 				
-				case 3: 
+				case 3:
+				modificarPrecio();
+				break;
+				case 4:
+				eliminarProducto();
+				break;
+				case 5:
+				realizarVenta();
+				break;
+				
+				case 0: 
 				flag=false;
 				System.out.println("Gracias por usar nuestro servicio");
 				break;
@@ -70,6 +83,7 @@ public class Ejecutable{
 		}while(flag);
 		
 	}
+	
 	public void eliminarProducto(){
 		reader.nextLine();
 		
@@ -127,5 +141,56 @@ public class Ejecutable{
 		
 		
 	
+	}
+	public void realizarVenta () { //no retorna nada porque este muestra la informacion al usuario del producto buscado 
+	
+		lector.nextLine(); //correción del bug del Scanner
+		
+		System.out.println(controller.listarProductos());
+	
+		System.out.println("Digite el codigo del producto");
+		String codigo = lector.nextLine ();
+		
+		System.out.println("Digite la cantidad a vender del producto");
+		int cantidadVendida=lector.nextInt();
+		
+		System.out.println(controladora.realizarVenta(codigo,cantidadVendida));
+	
+		
+		// \n es un salto de linea para que el codigo se muestre mas ordenado 
+		
+		
+		
+	
+	}
+	
+	public void modificarPrecio(){
+		
+		lector.nextLine();//Correcion del bug del Scanner.
+		
+		System.out.println(controladora.listarProductos());
+		
+		System.out.println("Ingresa el codigo");
+		String codigo = lector.nextLine();
+		
+		String msg = controladora.mostrarProducto(codigo);
+		
+		if(msg.equals("The inquired product isn't avaibable.")){
+			
+			System.out.println(msg);
+			
+		}else{
+		
+		    System.out.println("The Details of the product are:\n" +msg);
+			
+			System.out.println("Type the Price of the new Product.");
+		    double price = reader.nextDouble();
+		
+		    controladora.priceProductModify(code,price);
+		}
+		
+		
+		
+		
 	}
 }

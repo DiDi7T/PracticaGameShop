@@ -11,6 +11,7 @@ public class Controladora{
 			
 		
 			almacenamiento= new Producto [1000];
+			ventas =new Venta[10];
 			crearCasosDePrueba();
 			
 		}
@@ -25,11 +26,43 @@ public class Controladora{
 			return lista;
 		}
 		
+		public String listarcategoria(){
+		
+		Categoria[] categoriaArray = Categoria.values();
+		
+		String list = "";
+		
+		    for (int i = 0; i < categoriaArray.length; i++){
+				
+				list += "\n" + (i+1) + "-" + categoriaArray[i];
+			}
+			
+			return list;
+		}
+		
 		// metodo que recibe la informacion del archivo ejecutable de otro objeto e
 		// Este metodo nos sirve para almacenar el producto en uno de los espacios de el arreglo 
-		public boolean almacenarProducto (String codigo, String nombre, double precio) {
+		public boolean almacenarProducto (String codigo, String nombre, double precio, int categoria) {
 			
-			Producto nuevoProducto = new  Producto (codigo, nombre, precio);
+			Categoria newCategoria = Categoria.GAME;
+			
+			switch(categoria){
+				
+				case 1:
+					newCategoria = Categoria.GAME;
+				break;
+				
+				case 2:
+					newCategoria = Categoria.CONSOLE;
+				break;
+				
+				case 3:
+					newCategoria = Categoria.ACCESORY;
+				break;
+			}
+		
+			
+			Producto nuevoProducto = new  Producto (codigo, nombre, precio, newcategoria);
 			
 			for (int i = 0; i<almacenamiento.length; i++) {
 				
@@ -143,6 +176,24 @@ public class Controladora{
 			}
 			
 			return -1; //si no es igual va retornar esto. 
+		}
+		
+		
+		public String realizarVenta(String nuevoProducto, int cantidadProducto){
+			Producto temporal=buscarProducto(codigo);
+			if(temporal!=null){
+				if(temporal.hayProducto(cantidadProducto)){
+					Venta nuevaVenta= new Venta(cantidadProducto,temporal);
+					for (int z =0;z < ventas.length;z++){
+						if(ventas[z]==null){
+							ventas[z]=nuevaVenta;
+							temporal.setCantidadDisponible(temporal.getCantidadDisponible-cantidadProducto);
+							return nuevaVenta.toString();
+						}
+					}
+				}
+			}
+			return "No se ha podido registrar la venta :c";
 		}
 			
 		
