@@ -1,31 +1,38 @@
 package model;
+
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 
-public class Venta {
+public class Venta{
 	
 	private double valorTotal;
-	private double valorIva;
+	private double valorIVA;
 	private int cantidadVendida;
 	private Producto productoVendido;
-	private Calendar fechaVenta;
+	private Calendar fechaDeVenta;
 	
-	public Venta(Producto productoVendido int cantidadVendida){
+	public Venta(int cantidadVendida, Producto productoVendido){
 		
-		double subTotal=cantidadVendida*productoVendido.getPrecio();
-		valorIva=subTotal*0.19;
-		valorTotal=subTotal+valorIva;
-		this.cantidadVendida=cantidadVendida;
-		this.productoVendido=productoVendido;
-		fechaVenta=Calendar.getInstance();
-		
+		double subTotal = cantidadVendida*productoVendido.getPrecio();
+		valorIVA = subTotal*0.19;	
+		valorTotal=subTotal+valorIVA;
+		this.cantidadVendida = cantidadVendida;
+		this.productoVendido = productoVendido;
+		fechaDeVenta = Calendar.getInstance();
 		
 	}
+	
 	public String toString(){
-		String msg="Venta: "
-		msg+= "Producto:" + productoVendido.getNombre()+ " - "+cantidadVendida+" - "+productoVendido.getPrecio()+" - "+"Fecha de la venta:"+new SimpleDateFormat("dd-MM-yyyy").format(fechaVenta.getTime());
-		msg+="\nTotal:"+valorTotal;
 		
-		return msg; 
+		String msg= "Venta: \n";
+		
+		msg += productoVendido.getNombre()+" - "+ cantidadVendida+" - "+ productoVendido.getPrecio();
+		msg += "\nTotal: "+valorTotal;
+
+		return msg;
+		
 	}
+	
+	
+	
 }
