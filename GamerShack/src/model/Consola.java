@@ -22,5 +22,11 @@ public class Consola extends Producto {
                 + ", getNombre()=" + getNombre() + ", getPrecio()=" + getPrecio() + ", getCantidadDisponible()="
                 + getCantidadDisponible() + "]";
     }
+
+    @Override
+    public double calcularImpuestos(double valor) {
+        
+        return valor*IVA;
+    }
     
 }

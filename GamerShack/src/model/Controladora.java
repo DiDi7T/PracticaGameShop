@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Arrays;
+
 public class Controladora {
 
 	// Relacion
@@ -11,6 +13,7 @@ public class Controladora {
 		almacenamiento = new Producto[1000];
 		ventas = new Venta[10];
 		crearCasosDePrueba();
+		ordenarAlmacenamiento();
 
 	}
 
@@ -130,14 +133,14 @@ public class Controladora {
 		}
 
 		return temporal.toString();
-
 	}
 
 	public void crearCasosDePrueba() {
 
 		almacenarConsola("1", "PlayStation 6", 7000000, 12, "Sony");
-		almacenarConsola("2", "Nintendo Switch 2", 8000000, 40, "Nintendo");
 		almacenarJuego("3", "GTA 6", 400000, 20, 3);
+		almacenarConsola("2", "Nintendo Switch 2", 8000000, 40, "Nintendo");
+		
 
 	}
 
@@ -251,6 +254,11 @@ public class Controladora {
 			}
 		}
 		return msg+="El producto con mas unidades es: "+almacenamiento[indice].getNombre()+" con "+maximo+" unidades. ";
+	}
+
+	public void ordenarAlmacenamiento(){
+		Arrays.sort(almacenamiento);
+		
 	}
 
 }

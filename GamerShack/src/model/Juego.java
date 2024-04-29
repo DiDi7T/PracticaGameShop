@@ -23,6 +23,13 @@ public class Juego extends Producto {
                 + ", getPrecio()=" + getPrecio() + ", getCantidadDisponible()=" + getCantidadDisponible() + "]";
     }
 
+    @Override
+    public double calcularImpuestos(double valor) {
+       return valor*RETEFUENTE;
+    }
+
+    
+
 
     
 }
