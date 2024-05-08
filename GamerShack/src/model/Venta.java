@@ -14,7 +14,7 @@ public class Venta{
 	public Venta(int cantidadVendida, Producto productoVendido){
 		
 		double subTotal = cantidadVendida*productoVendido.getPrecio();
-		valorImpuesto = productoVendido.calcularImpuestos(subTotal);
+		valorImpuesto = productoVendido.calcularImpuesto(subTotal);	
 		valorTotal=subTotal+valorImpuesto;
 		this.cantidadVendida = cantidadVendida;
 		this.productoVendido = productoVendido;

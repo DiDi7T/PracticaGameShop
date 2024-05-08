@@ -1,5 +1,7 @@
 package model;
 
 public enum Genero {
-    ACCION,DEPORTES,SHOOTER;
+    
+    ACCION, DEPORTES, DISPAROS;
+
 }
